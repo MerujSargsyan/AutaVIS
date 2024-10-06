@@ -1,5 +1,13 @@
 #include <vector.h>
 
+// IMPORTANT!!!:
+// Implementing a getter for this structure was pointless because
+// of the type being so general. The user must do the following:
+//
+// T value = *(T *)(vector.arr[i]);
+//
+// The onlyt thing a getter would have is {return vector.arr[i];}
+
 // USER RESPONSIBLE FOR FREEING using free_vector
 vector init_vector(int capacity) {
     vector vect;
