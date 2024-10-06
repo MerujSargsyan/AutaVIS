@@ -1,11 +1,16 @@
 # Developer Notes:
 
-build & compile: (may take a while initially)
+compile: (may take a while initially)
 
 ```
 git clone ...
 ./build.sh
 ```
+run:
+```
+build/main
+```
+
 
 ### Structure:
 <ol>
