@@ -1,9 +1,9 @@
 #include <vector.h>
 #include <raylib.h>
-
-#define uint unsigned int
+#include <math.h>
 
 int main() {
+    SetTargetFPS(30);
     InitWindow(500, 500, "Hello World!");
 
     while(!WindowShouldClose()) {
