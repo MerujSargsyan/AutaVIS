@@ -4,7 +4,6 @@
 #define uint unsigned int
 
 const float radius = 5.0f;
-
 Vector2 lerp(Vector2 p1, Vector2 p2, float t) {
     Vector2 output = {0};
     output.x = (1 - t)*p1.x + t*p2.x;
@@ -19,13 +18,12 @@ void draw_points(vector* points) {
     }
 }
 
-void draw_curve(float time, vector* points) {
+void draw_curve(Vector2 midpoint, float time, vector* points) {
     Vector2 start = {0};
     Vector2 end = {0};
-    Vector2 third = {0};
+    Vector2 third = midpoint;
 
     start = (Vector2){.x = 50, .y = 50};
-    third = (Vector2){.x = 250, .y = 250};
     end = GetMousePosition();
 
     // two runner points
@@ -59,6 +57,7 @@ void draw_curve(float time, vector* points) {
 int main() {
     float time = 0.0f;
     vector points = init_vector(10);
+    Vector2 midpoint = (Vector2){250, 250};
 
     SetTargetFPS(60);
     InitWindow(500, 500, "Hello World!");
@@ -67,8 +66,8 @@ int main() {
         BeginDrawing();
         ClearBackground(WHITE);
         {
-            draw_curve(time, &points);
-            time += 0.005f;
+            draw_curve(midpoint, time, &points);
+            time += 0.003f;
             if(time > 1.0f) time = 0.0f;
         }
         EndDrawing();
